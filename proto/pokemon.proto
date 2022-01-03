@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+service Pokemon {
+  rpc GetByNo (GetByNoReq) returns (PokemonDetail) {}
+  rpc GetSimpleListByNo (GetByNoReq) returns (PokemonDetail) {}
+}
+
+message GetByNoReq {
+    uint32 no = 1;
+}
+
+message PokemonDetail {
+    uint32 no = 1;
+    string name = 2;
+    uint32 gen = 3;
+    string category = 4;
+    repeated forms form = 5;
+}
+
+message forms {
+  message abilities {
+    repeated string list = 1;
+    string hidden = 2;
+  }
+
+  message stats {
+    uint32 hp = 1;
+    uint32 attack = 2;
+    uint32 defense = 3;
+    uint32 specialAttack = 4;
+    uint32 specialDefense = 5;
+    uint32 speed = 6;
+  }
+
+  string formName = 1;
+  repeated string type = 2;
+  abilities ability = 3;
+  stats stat = 4;
+  uint32 height = 5;
+  uint32 weight = 6;
+}

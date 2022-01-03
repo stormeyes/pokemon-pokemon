@@ -1,0 +1,6 @@
+grpc==1.0.0
+grpcio==1.43.0
+peewee==3.14.8
+protobuf==3.19.1
+PyMySQL==0.10.1
+nacos-sdk-python
